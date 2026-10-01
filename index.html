@@ -21,6 +21,7 @@
       --matcha: #7a9e7e;
       --berry: #a65e4e;
       --white: #ffffff;
+      --forest: #1f4d2b;
       --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
       --radius: 24px;
       --radius-sm: 14px;
@@ -112,6 +113,19 @@
     .btn-outline:hover {
       background: var(--espresso);
       color: var(--crema);
+    }
+
+    .btn-green {
+      background-color: var(--forest);
+      color: var(--crema);
+      box-shadow: 0 4px 12px rgba(31, 77, 43, 0.25);
+    }
+
+    .btn-green:hover {
+      background-color: #2c6b3d;
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(31, 77, 43, 0.3);
     }
 
     .badge {
@@ -733,10 +747,10 @@
     <section class="hero container">
       <div class="hero-content">
         <span class="badge">☕ Neighbourhood favourite since 2018</span>
-        <h1>Freshly roasted coffee &amp; warm bakery delights</h1>
+        <h1>Freshly Roasted, Locally Loved</h1>
         <p>Bean &amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love.</p>
         <div class="hero-cta">
-          <a href="#menu" class="btn">Order online</a>
+          <a href="#menu" class="btn btn-green">Order online</a>
           <a href="#reserve" class="btn btn-outline">Book a table</a>
         </div>
       </div>
