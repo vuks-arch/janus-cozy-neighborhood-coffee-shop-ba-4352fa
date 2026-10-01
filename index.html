@@ -1,1 +1,1067 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A cozy neighborhood coffee shop and bakery called Bean &amp; Brew. I want a full menu with prices and photos (espresso drinks, teas, fresh pastries, breakfast sandwiches), online ordering with a cart and card checkout, a table reservation booking form, a contact form with our address and a map, our opening hours, an &quot;our story&quot; about section with the team, a photo gallery of the cafe and our dishes, customer reviews and testimonials, a pricing section for coffee subscription plans, an FAQ, a newsletter signup, gift-card info, and links to our Instagram, Facebook and WhatsApp.</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui,-apple-system,sans-serif;background:#0a0e1a;color:#e8ecf6}.c{text-align:center;padding:24px}h1{font-size:34px;margin:0 0 8px;letter-spacing:-.5px}p{color:#8b93a7;margin:4px 0}.t{margin-top:20px;font-size:12px;color:#5b6478}</style></head><body><div class="c"><h1>A cozy neighborhood coffee shop and bakery called Bean &amp; Brew. I want a full menu with prices and photos (espresso drinks, teas, fresh pastries, breakfast sandwiches), online ordering with a cart and card checkout, a table reservation booking form, a contact form with our address and a map, our opening hours, an &quot;our story&quot; about section with the team, a photo gallery of the cafe and our dishes, customer reviews and testimonials, a pricing section for coffee subscription plans, an FAQ, a newsletter signup, gift-card info, and links to our Instagram, Facebook and WhatsApp.</h1><p>Edit index.html and push — it deploys automatically.</p><p class="t">Staged with Janus.</p></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean & Brew · cozy coffee & bakery</title>
+  <style>
+    /* ---------- RESET & VARIABLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --espresso: #3b2b1f;
+      --crema: #f7f1e8;
+      --latte: #e6d9c8;
+      --mocha: #6b4f3a;
+      --caramel: #c49a6c;
+      --matcha: #7a9e7e;
+      --berry: #a65e4e;
+      --white: #ffffff;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      --radius: 24px;
+      --radius-sm: 14px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--crema);
+      color: var(--espresso);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      color: var(--mocha);
+      max-width: 600px;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    /* ---------- BUTTONS & BADGES ---------- */
+    .btn {
+      display: inline-block;
+      background-color: var(--espresso);
+      color: var(--crema);
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(59, 43, 31, 0.15);
+    }
+
+    .btn:hover {
+      background-color: var(--mocha);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 43, 31, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--espresso);
+      border: 1.5px solid var(--espresso);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--espresso);
+      color: var(--crema);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--latte);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--mocha);
+      letter-spacing: 0.3px;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background-color: rgba(247, 241, 232, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(107, 79, 58, 0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--espresso);
+    }
+
+    .logo span {
+      color: var(--caramel);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 28px;
+      font-weight: 500;
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      color: var(--mocha);
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--espresso);
+    }
+
+    .cart-icon {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--espresso);
+      color: var(--crema);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 60px 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--mocha);
+      margin: 24px 0 32px;
+      max-width: 500px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    /* ---------- MENU GRID ---------- */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .menu-card img {
+      height: 180px;
+      width: 100%;
+      margin-bottom: 18px;
+      border-radius: var(--radius-sm);
+    }
+
+    .menu-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .menu-card .price {
+      font-weight: 600;
+      color: var(--caramel);
+      font-size: 1.1rem;
+      margin: 8px 0 12px;
+    }
+
+    .menu-card p {
+      color: var(--mocha);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .add-to-cart {
+      margin-top: 16px;
+      background: var(--latte);
+      color: var(--espresso);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 0.9rem;
+      align-self: flex-start;
+    }
+
+    .add-to-cart:hover {
+      background: var(--caramel);
+      color: var(--white);
+    }
+
+    /* ---------- ABOUT / TEAM ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--mocha);
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .team-list {
+      display: flex;
+      gap: 24px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .team-member {
+      text-align: center;
+      flex: 1 0 100px;
+    }
+
+    .team-member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 8px;
+    }
+
+    .team-member span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      transition: transform 0.2s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--mocha);
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card .author {
+      font-weight: 600;
+      color: var(--espresso);
+    }
+
+    /* ---------- PRICING ---------- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .pricing-card .price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--espresso);
+      margin: 16px 0 8px;
+    }
+
+    .pricing-card .price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--mocha);
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .pricing-card li {
+      padding: 8px 0;
+      color: var(--mocha);
+      border-bottom: 1px solid var(--latte);
+    }
+
+    .pricing-card li:last-child {
+      border-bottom: none;
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      color: var(--mocha);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- CONTACT & MAP ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .contact-info p {
+      margin-bottom: 12px;
+      color: var(--mocha);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .reservation-form input,
+    .reservation-form select,
+    .newsletter-form input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--latte);
+      border-radius: 40px;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      background: var(--white);
+      margin-bottom: 16px;
+      transition: border 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .reservation-form input:focus,
+    .reservation-form select:focus,
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--caramel);
+    }
+
+    .contact-form textarea {
+      border-radius: var(--radius-sm);
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .map-placeholder {
+      background: var(--latte);
+      border-radius: var(--radius);
+      height: 100%;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--mocha);
+      font-weight: 500;
+      background-image: radial-gradient(circle at 30% 40%, rgba(196, 154, 108, 0.2) 0%, transparent 50%);
+      border: 1px solid rgba(107, 79, 58, 0.1);
+    }
+
+    /* ---------- RESERVATION ---------- */
+    .reservation-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .reservation-form .full-width {
+      grid-column: span 2;
+    }
+
+    /* ---------- NEWSLETTER ---------- */
+    .newsletter {
+      background: var(--espresso);
+      color: var(--crema);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      color: var(--crema);
+    }
+
+    .newsletter p {
+      color: var(--latte);
+      margin-bottom: 28px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      margin-bottom: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--crema);
+    }
+
+    .newsletter-form input::placeholder {
+      color: var(--latte);
+    }
+
+    .newsletter-form .btn {
+      background: var(--caramel);
+      color: var(--espresso);
+      white-space: nowrap;
+    }
+
+    .newsletter-form .btn:hover {
+      background: var(--white);
+    }
+
+    /* ---------- GIFT CARD ---------- */
+    .gift-card {
+      background: var(--latte);
+      border-radius: var(--radius);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .gift-card h3 {
+      font-size: 1.8rem;
+    }
+
+    .gift-card p {
+      color: var(--mocha);
+      max-width: 500px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--espresso);
+      color: var(--latte);
+      padding: 60px 0 30px;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-grid h4 {
+      color: var(--crema);
+      margin-bottom: 16px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-grid a {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--latte);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .footer-grid a:hover {
+      color: var(--caramel);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .social-links a {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(247, 241, 232, 0.6);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero-image img {
+        height: 280px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reservation-form {
+        grid-template-columns: 1fr;
+      }
+
+      .reservation-form .full-width {
+        grid-column: span 1;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .gift-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid img {
+        height: 140px;
+      }
+    }
+  </style>
+
+<!--janus-seo-->
+<meta name="description" content="Bean &amp;amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love.">
+<meta property="og:title" content="Bean &amp; Brew · cozy coffee &amp; bakery">
+<meta property="og:description" content="Bean &amp;amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bean &amp; Brew · cozy coffee &amp; bakery">
+<meta name="twitter:description" content="Bean &amp;amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Bean & Brew \u00b7 cozy coffee & bakery", "description": "Bean &amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love."}</script>
+<style><!--janus-print-->@media print{#jp-cart-toggle,#jp-cart,#jp-top,#jp-cookie,#jp-dark-btn,#jp-announce,[href^="https://wa.me"]{display:none!important}body{background:#fff!important;color:#000!important}a{text-decoration:underline}}</style></head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">Bean <span>&</span> Brew</div>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">Our story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pricing">Subscriptions</a>
+        <a href="#contact">Contact</a>
+        <a href="#reserve">Reserve</a>
+        <a href="#" class="cart-icon">🛒 Cart (0)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-content">
+        <span class="badge">☕ Neighbourhood favourite since 2018</span>
+        <h1>Freshly roasted coffee &amp; warm bakery delights</h1>
+        <p>Bean &amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love.</p>
+        <div class="hero-cta">
+          <a href="#menu" class="btn">Order online</a>
+          <a href="#reserve" class="btn btn-outline">Book a table</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop" alt="Cozy coffee shop interior with warm lighting">
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="container">
+      <div class="section-header">
+        <h2>Our menu</h2>
+        <p class="section-sub">Espresso drinks, teas, fresh pastries, and breakfast sandwiches — all made in-house daily.</p>
+      </div>
+      <div class="menu-grid">
+        <!-- item 1 -->
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop" alt="Espresso">
+          <h3>Double Espresso</h3>
+          <div class="price">$3.50</div>
+          <p>Rich, velvety shot from our house blend. Notes of dark chocolate and hazelnut.</p>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- item 2 -->
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&auto=format&fit=crop" alt="Flat white">
+          <h3>Flat White</h3>
+          <div class="price">$4.80</div>
+          <p>Silky microfoam over a double ristretto. Smooth and strong.</p>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- item 3 -->
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&auto=format&fit=crop" alt="Matcha latte">
+          <h3>Matcha Latte</h3>
+          <div class="price">$5.20</div>
+          <p>Ceremonial-grade matcha whisked with steamed oat milk.</p>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- item 4 -->
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&auto=format&fit=crop" alt="Croissant">
+          <h3>Butter Croissant</h3>
+          <div class="price">$3.80</div>
+          <p>Flaky, golden, and baked fresh every morning. Pure butter.</p>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- item 5 -->
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=600&auto=format&fit=crop" alt="Breakfast sandwich">
+          <h3>Bacon &amp; Egg Sandwich</h3>
+          <div class="price">$8.50</div>
+          <p>Smoked bacon, free-range egg, cheddar, and tomato relish on a brioche bun.</p>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <!-- item 6 -->
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&auto=format&fit=crop" alt="Iced tea">
+          <h3>Peach Iced Tea</h3>
+          <div class="price">$4.20</div>
+          <p>Cold-brewed black tea with fresh peach purée and a hint of mint.</p>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / TEAM -->
+    <section id="about" class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="badge">Our story</span>
+          <h2>More than just coffee</h2>
+          <p>Bean &amp; Brew started as a tiny roastery in 2018. We wanted to create a space where neighbours could slow down, share stories, and enjoy honest food.</p>
+          <p>Today we still roast our beans in small batches, bake our pastries before sunrise, and greet you by name. Come for the coffee, stay for the warmth.</p>
+          <div class="team-list">
+            <div class="team-member">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop" alt="Maya, head roaster">
+              <span>Maya · Roaster</span>
+            </div>
+            <div class="team-member">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop" alt="Leo, baker">
+              <span>Leo · Baker</span>
+            </div>
+            <div class="team-member">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop" alt="Nina, barista">
+              <span>Nina · Barista</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800&auto=format&fit=crop" alt="Barista pouring latte art">
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="container">
+      <div class="section-header">
+        <h2>From our café</h2>
+        <p class="section-sub">A little peek at our space, our bakes, and the people who make it happen.</p>
+      </div>
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&auto=format&fit=crop" alt="Latte art">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&auto=format&fit=crop" alt="Fresh bread">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&auto=format&fit=crop" alt="Cafe interior">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&auto=format&fit=crop" alt="Croissants">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&auto=format&fit=crop" alt="Coffee and cake">
+        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&auto=format&fit=crop" alt="Barista at work">
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="container">
+      <div class="section-header">
+        <h2>What our regulars say</h2>
+        <p class="section-sub">Real words from the wonderful people who make Bean &amp; Brew feel like home.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>“The best flat white in the neighbourhood — and the almond croissant is dangerously good.”</p>
+          <div class="author">— Clara M.</div>
+        </div>
+        <div class="testimonial-card">
+          <p>“I come here every morning before work. The team knows my order by heart. It’s the little things.”</p>
+          <div class="author">— James T.</div>
+        </div>
+        <div class="testimonial-card">
+          <p>“Cozy, welcoming, and the breakfast sandwich is a masterpiece. My kids love the hot chocolate too.”</p>
+          <div class="author">— Priya S.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING / SUBSCRIPTIONS -->
+    <section id="pricing" class="container">
+      <div class="section-header">
+        <h2>Coffee subscription plans</h2>
+        <p class="section-sub">Freshly roasted beans delivered to your door — pause or cancel anytime.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Drip</h3>
+          <div class="price">$18<small>/month</small></div>
+          <ul>
+            <li>250g house blend</li>
+            <li>Free local delivery</li>
+            <li>Brew guide included</li>
+          </ul>
+          <button class="btn btn-outline">Choose Drip</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Espresso</h3>
+          <div class="price">$28<small>/month</small></div>
+          <ul>
+            <li>500g rotating single origin</li>
+            <li>Free local delivery</li>
+            <li>10% off café drinks</li>
+          </ul>
+          <button class="btn">Choose Espresso</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Connoisseur</h3>
+          <div class="price">$42<small>/month</small></div>
+          <ul>
+            <li>2 × 250g micro-lot beans</li>
+            <li>Free local delivery</li>
+            <li>15% off café drinks</li>
+            <li>Exclusive tasting invites</li>
+          </ul>
+          <button class="btn btn-outline">Choose Connoisseur</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container">
+      <div class="section-header">
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-item">
+        <h3>Do you offer dairy-free milk alternatives?</h3>
+        <p>Yes — oat, almond, soy, and coconut milk are available for all drinks at no extra charge.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I order online for pickup?</h3>
+        <p>Absolutely. Place your order through our website and pick it up at the counter — we’ll have it ready.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Are your pastries baked in-house?</h3>
+        <p>Every single one. Our baker Leo starts at 4am so you get warm croissants and muffins fresh each morning.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you take table reservations?</h3>
+        <p>Yes, for groups of 2–8. Use the reservation form below or give us a call.</p>
+      </div>
+    </section>
+
+    <!-- RESERVATION -->
+    <section id="reserve" class="container">
+      <div class="section-header">
+        <h2>Book a table</h2>
+        <p class="section-sub">Reserve your spot — we’ll keep the coffee warm.</p>
+      </div>
+      <form class="reservation-form" onsubmit="event.preventDefault(); alert('Reservation request sent! We will confirm shortly.');" data-janus-form action="https://janus.joonbeauty.com/api/form/web_cozy_neighborhood_coffee_shop_bakery_cal" method="post">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Email address" required>
+        <input type="date" required>
+        <select required>
+          <option value="" disabled selected>Number of guests</option>
+          <option>1–2</option>
+          <option>3–4</option>
+          <option>5–6</option>
+          <option>7–8</option>
+        </select>
+        <input type="time" required>
+        <input type="tel" placeholder="Phone number" required>
+        <textarea class="full-width" placeholder="Special requests (optional)" rows="3"></textarea>
+        <button type="submit" class="btn full-width">Request reservation</button>
+      </form>
+    </section>
+
+    <!-- CONTACT & MAP -->
+    <section id="contact" class="container">
+      <div class="section-header">
+        <h2>Visit us</h2>
+        <p class="section-sub">We’re on the corner of Maple &amp; 5th — come say hello.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>📍 42 Maple Street, Portland, OR 97205</p>
+          <p>📞 (503) 555-0198</p>
+          <p>✉️ hello@beanandbrew.com</p>
+          <p>🕒 Mon–Fri: 7am – 6pm</p>
+          <p>🕒 Sat–Sun: 8am – 5pm</p>
+          <div class="social-links" style="margin-top: 24px;">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          🗺️ Interactive map — 42 Maple Street
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="container" style="padding-top: 0;">
+      <div class="section-header">
+        <h2>Send us a message</h2>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We will get back to you soon.');" data-janus-form action="https://janus.joonbeauty.com/api/form/web_cozy_neighborhood_coffee_shop_bakery_cal" method="post">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Email address" required>
+        <textarea placeholder="Your message" required></textarea>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+    </section>
+
+    <!-- GIFT CARD -->
+    <section class="container">
+      <div class="gift-card">
+        <div>
+          <h3>Give the gift of coffee</h3>
+          <p>Bean &amp; Brew gift cards are available in any amount — perfect for birthdays, thank-yous, or just because.</p>
+        </div>
+        <a href="#" class="btn">Buy a gift card</a>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="container">
+      <div class="newsletter">
+        <h2>Stay in the loop</h2>
+        <p>Sign up for our newsletter — seasonal drinks, bakery specials, and neighbourhood events.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('You are subscribed! Welcome to the Bean & Brew family.');" data-janus-form action="https://janus.joonbeauty.com/api/form/web_cozy_neighborhood_coffee_shop_bakery_cal" method="post">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Bean &amp; Brew</h4>
+          <p style="color: var(--latte); font-size: 0.95rem;">Cozy neighbourhood coffee shop and bakery. Roasting small batches since 2018.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="#menu">Menu</a>
+          <a href="#about">Our story</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#pricing">Subscriptions</a>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <a href="#reserve">Book a table</a>
+          <a href="#contact">Contact us</a>
+          <a href="#">Gift cards</a>
+          <a href="#">Careers</a>
+        </div>
+        <div>
+          <h4>Follow us</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Bean &amp; Brew · 42 Maple Street, Portland, OR · Open daily from 7am
+      </div>
+    </div>
+  </footer>
+
+
+<!--janus-forms-->
+<script src="https://janus.joonbeauty.com/api/forms.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
+
+<!--janus-analytics-->
+<script src="https://janus.joonbeauty.com/api/analytics.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
+</body>
+</html>
