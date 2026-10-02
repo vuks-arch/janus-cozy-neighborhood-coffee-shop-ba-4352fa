@@ -772,7 +772,7 @@
           <h3>Double Espresso</h3>
           <div class="price">$3.50</div>
           <p>Rich, velvety shot from our house blend. Notes of dark chocolate and hazelnut.</p>
-          <button class="add-to-cart">Add to cart</button>
+          <button class="add-to-cart jp-add" data-name="Double Espresso" data-cents="350">Add to cart</button>
         </div>
         <!-- item 2 -->
         <div class="menu-card">
@@ -780,7 +780,7 @@
           <h3>Flat White</h3>
           <div class="price">$4.80</div>
           <p>Silky microfoam over a double ristretto. Smooth and strong.</p>
-          <button class="add-to-cart">Add to cart</button>
+          <button class="add-to-cart jp-add" data-name="Flat White" data-cents="480">Add to cart</button>
         </div>
         <!-- item 3 -->
         <div class="menu-card">
@@ -788,7 +788,7 @@
           <h3>Matcha Latte</h3>
           <div class="price">$5.20</div>
           <p>Ceremonial-grade matcha whisked with steamed oat milk.</p>
-          <button class="add-to-cart">Add to cart</button>
+          <button class="add-to-cart jp-add" data-name="Matcha Latte" data-cents="520">Add to cart</button>
         </div>
         <!-- item 4 -->
         <div class="menu-card">
@@ -796,7 +796,7 @@
           <h3>Butter Croissant</h3>
           <div class="price">$3.80</div>
           <p>Flaky, golden, and baked fresh every morning. Pure butter.</p>
-          <button class="add-to-cart">Add to cart</button>
+          <button class="add-to-cart jp-add" data-name="Butter Croissant" data-cents="380">Add to cart</button>
         </div>
         <!-- item 5 -->
         <div class="menu-card">
@@ -804,7 +804,7 @@
           <h3>Bacon &amp; Egg Sandwich</h3>
           <div class="price">$8.50</div>
           <p>Smoked bacon, free-range egg, cheddar, and tomato relish on a brioche bun.</p>
-          <button class="add-to-cart">Add to cart</button>
+          <button class="add-to-cart jp-add" data-name="Bacon &amp;amp; Egg Sandwich" data-cents="850">Add to cart</button>
         </div>
         <!-- item 6 -->
         <div class="menu-card">
@@ -812,7 +812,7 @@
           <h3>Peach Iced Tea</h3>
           <div class="price">$4.20</div>
           <p>Cold-brewed black tea with fresh peach purée and a hint of mint.</p>
-          <button class="add-to-cart">Add to cart</button>
+          <button class="add-to-cart jp-add" data-name="Peach Iced Tea" data-cents="420">Add to cart</button>
         </div>
       </div>
     </section>
@@ -1035,49 +1035,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h4>Bean &amp; Brew</h4>
-          <p style="color: var(--latte); font-size: 0.95rem;">Cozy neighbourhood coffee shop and bakery. Roasting small batches since 2018.</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <a href="#menu">Menu</a>
-          <a href="#about">Our story</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#pricing">Subscriptions</a>
-        </div>
-        <div>
-          <h4>Visit</h4>
-          <a href="#reserve">Book a table</a>
-          <a href="#contact">Contact us</a>
-          <a href="#">Gift cards</a>
-          <a href="#">Careers</a>
-        </div>
-        <div>
-          <h4>Follow us</h4>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="WhatsApp">WhatsApp</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        © 2025 Bean &amp; Brew · 42 Maple Street, Portland, OR · Open daily from 7am
-      </div>
-    </div>
-  </footer>
-
-
-<!--janus-forms-->
-<script src="https://janus.joonbeauty.com/api/forms.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
-
-<!--janus-analytics-->
-<script src="https://janus.joonbeauty.com/api/analytics.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
-<section id="products"><div style="max-width:1000px;margin:0 auto;padding:48px 20px"><h2>Shop</h2><style>#products .jp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}#products .jp-card{border:1px solid #eee;border-radius:12px;padding:18px;background:#fff}#products .jp-add,#jp-checkout{background:#2563eb;color:#fff;border:0;padding:9px 16px;border-radius:8px;font-weight:600;cursor:pointer}#products .jp-price{font-weight:700;margin:6px 0}#jp-cart-toggle{position:fixed;top:14px;right:14px;z-index:50;background:#111;color:#fff;border:0;border-radius:24px;padding:10px 16px;cursor:pointer;font-weight:600}#jp-cart{position:fixed;top:0;right:-360px;width:340px;max-width:90vw;height:100%;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.15);transition:right .25s;z-index:51;padding:20px;overflow:auto}#jp-cart.open{right:0}#jp-cart .jp-ci{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid #eee}#jp-checkout{width:100%;margin-top:16px;padding:12px}</style><button id="jp-cart-toggle">Cart (<span id="jp-cart-count">0</span>)</button><div id="jp-cart"><button id="jp-cart-close" style="float:right;border:0;background:none;font-size:1.4rem;cursor:pointer">&times;</button><h3>Your cart</h3><div id="jp-cart-items"></div><p style="font-weight:700;margin-top:12px">Total: <span id="jp-cart-total">$0.00</span></p><input id="jp-coupon" placeholder="Coupon code (optional)" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:6px;margin-bottom:8px"><button id="jp-checkout">Checkout</button></div><div class="jp-grid"><div class="jp-card"><h3>Kamran</h3><p>There is no Short Descriptions only the big descriptions.</p><p class="jp-price">$10.00</p><button class="jp-add" data-name="Kamran" data-cents="1000">Add to cart</button></div></div><script>
+  <section id="products" data-janus-cart-runtime><style>#jp-cart-toggle{position:fixed;top:14px;right:14px;z-index:50;background:#111;color:#fff;border:0;border-radius:24px;padding:10px 16px;cursor:pointer;font-weight:600}.jp-add{cursor:pointer}#jp-cart{position:fixed;top:0;right:-360px;width:340px;max-width:90vw;height:100%;background:#fff;color:#111;box-shadow:-4px 0 24px rgba(0,0,0,.15);transition:right .25s;z-index:51;padding:20px;overflow:auto}#jp-cart.open{right:0}#jp-cart .jp-ci{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid #eee}#jp-checkout{width:100%;margin-top:16px;background:#2563eb;color:#fff;border:0;padding:12px;border-radius:8px;font-weight:600;cursor:pointer}</style><button id="jp-cart-toggle">Cart (<span id="jp-cart-count">0</span>)</button><div id="jp-cart"><button id="jp-cart-close" style="float:right;border:0;background:none;font-size:1.4rem;cursor:pointer">&times;</button><h3>Your cart</h3><div id="jp-cart-items"></div><p style="font-weight:700;margin-top:12px">Total: <span id="jp-cart-total">$0.00</span></p><input id="jp-coupon" placeholder="Coupon code (optional)" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:6px;margin-bottom:8px"><button id="jp-checkout">Checkout</button></div><script>
 (function(){
   var EP = "https://janus.joonbeauty.com/api/checkout/web_cozy_neighborhood_coffee_shop_bakery_cal", cart = [];
   function fmt(c){ return '$' + (c/100).toFixed(2); }
@@ -1119,6 +1077,49 @@
   });
   render();
 })();
-</script></div></section>
+</script></section>
+<footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Bean &amp; Brew</h4>
+          <p style="color: var(--latte); font-size: 0.95rem;">Cozy neighbourhood coffee shop and bakery. Roasting small batches since 2018.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="#menu">Menu</a>
+          <a href="#about">Our story</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#pricing">Subscriptions</a>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <a href="#reserve">Book a table</a>
+          <a href="#contact">Contact us</a>
+          <a href="#">Gift cards</a>
+          <a href="#">Careers</a>
+        </div>
+        <div>
+          <h4>Follow us</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Bean &amp; Brew · 42 Maple Street, Portland, OR · Open daily from 7am
+      </div>
+    </div>
+  </footer>
+
+
+<!--janus-forms-->
+<script src="https://janus.joonbeauty.com/api/forms.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
+
+<!--janus-analytics-->
+<script src="https://janus.joonbeauty.com/api/analytics.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
+
 </body>
 </html>
