@@ -1077,5 +1077,48 @@
 
 <!--janus-analytics-->
 <script src="https://janus.joonbeauty.com/api/analytics.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
+<section id="products"><div style="max-width:1000px;margin:0 auto;padding:48px 20px"><h2>Shop</h2><style>#products .jp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}#products .jp-card{border:1px solid #eee;border-radius:12px;padding:18px;background:#fff}#products .jp-add,#jp-checkout{background:#2563eb;color:#fff;border:0;padding:9px 16px;border-radius:8px;font-weight:600;cursor:pointer}#products .jp-price{font-weight:700;margin:6px 0}#jp-cart-toggle{position:fixed;top:14px;right:14px;z-index:50;background:#111;color:#fff;border:0;border-radius:24px;padding:10px 16px;cursor:pointer;font-weight:600}#jp-cart{position:fixed;top:0;right:-360px;width:340px;max-width:90vw;height:100%;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.15);transition:right .25s;z-index:51;padding:20px;overflow:auto}#jp-cart.open{right:0}#jp-cart .jp-ci{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid #eee}#jp-checkout{width:100%;margin-top:16px;padding:12px}</style><button id="jp-cart-toggle">Cart (<span id="jp-cart-count">0</span>)</button><div id="jp-cart"><button id="jp-cart-close" style="float:right;border:0;background:none;font-size:1.4rem;cursor:pointer">&times;</button><h3>Your cart</h3><div id="jp-cart-items"></div><p style="font-weight:700;margin-top:12px">Total: <span id="jp-cart-total">$0.00</span></p><input id="jp-coupon" placeholder="Coupon code (optional)" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:6px;margin-bottom:8px"><button id="jp-checkout">Checkout</button></div><div class="jp-grid"><div class="jp-card"><h3>Kamran</h3><p>There is no Short Descriptions only the big descriptions.</p><p class="jp-price">$10.00</p><button class="jp-add" data-name="Kamran" data-cents="1000">Add to cart</button></div></div><script>
+(function(){
+  var EP = "https://janus.joonbeauty.com/api/checkout/web_cozy_neighborhood_coffee_shop_bakery_cal", cart = [];
+  function fmt(c){ return '$' + (c/100).toFixed(2); }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(ch){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]; }); }
+  function total(){ return cart.reduce(function(s,i){ return s + i.cents*i.qty; }, 0); }
+  function render(){
+    var d = document.getElementById('jp-cart-items'); if(!d) return;
+    d.innerHTML = cart.length ? cart.map(function(i,ix){
+      return '<div class="jp-ci"><span>'+esc(i.name)+' &times;'+i.qty+'</span><span>'+fmt(i.cents*i.qty)
+        +' <button data-rm="'+ix+'">remove</button></span></div>'; }).join('')
+      : '<p>Your cart is empty.</p>';
+    var t = document.getElementById('jp-cart-total'); if(t) t.textContent = fmt(total());
+    var b = document.getElementById('jp-cart-count');
+    if(b) b.textContent = cart.reduce(function(s,i){ return s+i.qty; }, 0);
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('.jp-add') : null;
+    if(a){ var n=a.getAttribute('data-name'), c=+a.getAttribute('data-cents');
+      var ex = cart.filter(function(i){ return i.name===n; })[0];
+      if(ex) ex.qty++; else cart.push({name:n, cents:c, qty:1});
+      render(); var el=document.getElementById('jp-cart'); if(el) el.classList.add('open'); return; }
+    if(e.target.id==='jp-cart-toggle'){ document.getElementById('jp-cart').classList.toggle('open'); return; }
+    if(e.target.id==='jp-cart-close'){ document.getElementById('jp-cart').classList.remove('open'); return; }
+    var rm = e.target.getAttribute ? e.target.getAttribute('data-rm') : null;
+    if(rm!==null && rm!==''){ cart.splice(+rm,1); render(); return; }
+    if(e.target.id==='jp-checkout'){
+      if(!cart.length){ alert('Your cart is empty.'); return; }
+      e.target.disabled = true;
+      var body = 'cart=' + encodeURIComponent(JSON.stringify(cart.map(function(i){
+        return {name:i.name, quantity:i.qty}; })));
+      var cp = document.getElementById('jp-coupon');
+      if (cp && cp.value) body += '&coupon=' + encodeURIComponent(cp.value);
+      fetch(EP, {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body})
+        .then(function(r){ return r.json(); })
+        .then(function(d){ if(d && d.url){ location.href = d.url; } else { throw 0; } })
+        .catch(function(){ e.target.disabled=false; alert('Checkout could not start. Please try again.'); });
+    }
+  });
+  render();
+})();
+</script></div></section>
 </body>
 </html>
