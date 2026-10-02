@@ -723,7 +723,7 @@
 <meta name="twitter:title" content="Bean &amp; Brew · cozy coffee &amp; bakery">
 <meta name="twitter:description" content="Bean &amp;amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Bean & Brew \u00b7 cozy coffee & bakery", "description": "Bean &amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love."}</script>
-<style><!--janus-print-->@media print{#jp-cart-toggle,#jp-cart,#jp-top,#jp-cookie,#jp-dark-btn,#jp-announce,[href^="https://wa.me"]{display:none!important}body{background:#fff!important;color:#000!important}a{text-decoration:underline}}</style></head>
+<style><!--janus-print-->@media print{#jp-cart-toggle,#jp-cart,#jp-top,#jp-cookie,#jp-dark-btn,#jp-announce,[href^="https://wa.me"]{display:none!important}body{background:#fff!important;color:#000!important}a{text-decoration:underline}}</style><style><!--janus-dark-->html.jp-dark{filter:invert(1) hue-rotate(180deg);background:#111}html.jp-dark img,html.jp-dark video,html.jp-dark iframe,html.jp-dark svg,[style*="background-image"]{filter:invert(1) hue-rotate(180deg)}#jp-dark-btn{position:fixed;top:14px;right:14px;z-index:65;width:42px;height:42px;border-radius:50%;border:0;background:#333;color:#fff;font-size:1.2rem;cursor:pointer}</style></head>
 <body>
 
   <!-- HEADER -->
@@ -1121,5 +1121,15 @@
 <!--janus-analytics-->
 <script src="https://janus.joonbeauty.com/api/analytics.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
 
-</body>
+<button id="jp-dark-btn" aria-label="Toggle dark mode">&#9790;</button><script>
+(function(){
+  var b=document.getElementById('jp-dark-btn'); if(!b) return;
+  function set(on){ document.documentElement.classList.toggle('jp-dark', on);
+    b.textContent = on ? '\u2600' : '\u263e';
+    try{ localStorage.setItem('jp-dark', on?'1':'0'); }catch(e){} }
+  var saved; try{ saved = localStorage.getItem('jp-dark'); }catch(e){}
+  set(saved==='1');
+  b.addEventListener('click', function(){ set(!document.documentElement.classList.contains('jp-dark')); });
+})();
+</script></body>
 </html>
