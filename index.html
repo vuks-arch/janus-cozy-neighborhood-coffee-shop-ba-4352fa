@@ -34,6 +34,7 @@
       color: var(--espresso);
       line-height: 1.5;
       scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     img {
@@ -148,6 +149,7 @@
       top: 0;
       z-index: 100;
       border-bottom: 1px solid rgba(107, 79, 58, 0.1);
+      transition: background-color 0.3s ease;
     }
 
     .header-inner {
@@ -250,7 +252,7 @@
       border-radius: var(--radius);
       padding: 24px;
       box-shadow: var(--shadow);
-      transition: transform 0.2s;
+      transition: transform 0.2s, background-color 0.3s ease;
       display: flex;
       flex-direction: column;
     }
@@ -373,6 +375,7 @@
       padding: 28px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      transition: background-color 0.3s ease;
     }
 
     .testimonial-card p {
@@ -399,7 +402,7 @@
       padding: 32px 24px;
       box-shadow: var(--shadow);
       text-align: center;
-      transition: transform 0.2s;
+      transition: transform 0.2s, background-color 0.3s ease;
     }
 
     .pricing-card:hover {
@@ -442,6 +445,7 @@
       padding: 20px 24px;
       margin-bottom: 12px;
       box-shadow: var(--shadow);
+      transition: background-color 0.3s ease;
     }
 
     .faq-item h3 {
@@ -481,8 +485,9 @@
       font-family: var(--font);
       font-size: 0.95rem;
       background: var(--white);
+      color: var(--espresso);
       margin-bottom: 16px;
-      transition: border 0.2s;
+      transition: border 0.2s, background-color 0.3s ease, color 0.3s ease;
     }
 
     .contact-form input:focus,
@@ -512,6 +517,7 @@
       font-weight: 500;
       background-image: radial-gradient(circle at 30% 40%, rgba(196, 154, 108, 0.2) 0%, transparent 50%);
       border: 1px solid rgba(107, 79, 58, 0.1);
+      transition: background-color 0.3s ease;
     }
 
     /* ---------- RESERVATION ---------- */
@@ -532,6 +538,7 @@
       border-radius: var(--radius);
       padding: 48px 40px;
       text-align: center;
+      transition: background-color 0.3s ease;
     }
 
     .newsletter h2 {
@@ -581,6 +588,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 24px;
+      transition: background-color 0.3s ease;
     }
 
     .gift-card h3 {
@@ -598,6 +606,7 @@
       color: var(--latte);
       padding: 60px 0 30px;
       margin-top: 40px;
+      transition: background-color 0.3s ease;
     }
 
     .footer-grid {
@@ -645,6 +654,103 @@
       text-align: center;
       font-size: 0.9rem;
       color: rgba(247, 241, 232, 0.6);
+    }
+
+    /* ---------- DARK THEME (colour-only, images untouched) ---------- */
+    html.jp-dark {
+      --espresso: #f2e9dd;
+      --crema: #17130f;
+      --latte: #2b241d;
+      --mocha: #c9b8a4;
+      --white: #221c16;
+      --forest: #2f7a45;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    html.jp-dark body {
+      background-color: #17130f;
+      color: #f2e9dd;
+    }
+
+    html.jp-dark header {
+      background-color: rgba(23, 19, 15, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    html.jp-dark .btn {
+      background-color: #f2e9dd;
+      color: #17130f;
+    }
+
+    html.jp-dark .btn:hover {
+      background-color: #d9c9b4;
+      color: #17130f;
+    }
+
+    html.jp-dark .btn-outline {
+      background: transparent;
+      color: #f2e9dd;
+      border-color: #f2e9dd;
+    }
+
+    html.jp-dark .btn-outline:hover {
+      background: #f2e9dd;
+      color: #17130f;
+    }
+
+    html.jp-dark .btn-green {
+      background-color: #2f7a45;
+      color: #ffffff;
+    }
+
+    html.jp-dark .btn-green:hover {
+      background-color: #3a9155;
+      color: #ffffff;
+    }
+
+    html.jp-dark .cart-icon {
+      background: #f2e9dd;
+      color: #17130f;
+    }
+
+    html.jp-dark .newsletter,
+    html.jp-dark footer {
+      background: #0f0c09;
+    }
+
+    html.jp-dark .newsletter-form .btn {
+      background: var(--caramel);
+      color: #17130f;
+    }
+
+    html.jp-dark .newsletter-form .btn:hover {
+      background: #ffffff;
+      color: #17130f;
+    }
+
+    html.jp-dark .map-placeholder {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    #jp-dark-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 65;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 0;
+      background: #333;
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+    }
+
+    html.jp-dark #jp-dark-btn {
+      background: #f2e9dd;
+      color: #17130f;
     }
 
     /* ---------- RESPONSIVE ---------- */
@@ -723,7 +829,7 @@
 <meta name="twitter:title" content="Bean &amp; Brew · cozy coffee &amp; bakery">
 <meta name="twitter:description" content="Bean &amp;amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Bean & Brew \u00b7 cozy coffee & bakery", "description": "Bean &amp; Brew is your cosy corner for single-origin espresso, buttery croissants, and breakfast sandwiches made with love."}</script>
-<style><!--janus-print-->@media print{#jp-cart-toggle,#jp-cart,#jp-top,#jp-cookie,#jp-dark-btn,#jp-announce,[href^="https://wa.me"]{display:none!important}body{background:#fff!important;color:#000!important}a{text-decoration:underline}}</style><style><!--janus-dark-->html.jp-dark{filter:invert(1) hue-rotate(180deg);background:#111}html.jp-dark img,html.jp-dark video,html.jp-dark iframe,html.jp-dark svg,[style*="background-image"]{filter:invert(1) hue-rotate(180deg)}#jp-dark-btn{position:fixed;bottom:20px;right:20px;z-index:65;width:48px;height:48px;border-radius:50%;border:0;background:#333;color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}</style></head>
+<style><!--janus-print-->@media print{#jp-cart-toggle,#jp-cart,#jp-top,#jp-cookie,#jp-dark-btn,#jp-announce,[href^="https://wa.me"]{display:none!important}body{background:#fff!important;color:#000!important}a{text-decoration:underline}}</style><style><!--janus-dark-->html.jp-dark{filter:invert(1) hue-rotate(180deg);background:#111}html.jp-dark img,html.jp-dark video,html.jp-dark iframe,html.jp-dark svg,[style*="background-image"]{filter:invert(1) hue-rotate(180deg)}#jp-dark-btn{position:fixed;top:14px;right:14px;z-index:65;width:42px;height:42px;border-radius:50%;border:0;background:#333;color:#fff;font-size:1.2rem;cursor:pointer}</style></head>
 <body>
 
   <!-- HEADER -->
@@ -878,7 +984,7 @@
           <div class="author">— James T.</div>
         </div>
         <div class="testimonial-card">
-          <p>“Cozy, welcoming, and the breakfast sandwich is a masterpiece. My kids love the hot chocolate too.”</p>
+          <p>“Cozy, welcoming, and the breakfast sandwich is a masterpiece. My kids love the hot chocolate too.”</</p>
           <div class="author">— Priya S.</div>
         </div>
       </div>
@@ -1122,6 +1228,16 @@
 <script src="https://janus.joonbeauty.com/api/analytics.js/web_cozy_neighborhood_coffee_shop_bakery_cal" defer></script>
 
 <button id="jp-dark-btn" aria-label="Toggle dark mode">&#9790;</button><script>
+(function(){
+  var b=document.getElementById('jp-dark-btn'); if(!b) return;
+  function set(on){ document.documentElement.classList.toggle('jp-dark', on);
+    b.textContent = on ? '\u2600' : '\u263e';
+    try{ localStorage.setItem('jp-dark', on?'1':'0'); }catch(e){} }
+  var saved; try{ saved = localStorage.getItem('jp-dark'); }catch(e){}
+  set(saved==='1');
+  b.addEventListener('click', function(){ set(!document.documentElement.classList.contains('jp-dark')); });
+})();
+</script><button id="jp-dark-btn" aria-label="Toggle dark mode">&#9790;</button><script>
 (function(){
   var b=document.getElementById('jp-dark-btn'); if(!b) return;
   function set(on){ document.documentElement.classList.toggle('jp-dark', on);
